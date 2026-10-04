@@ -44,9 +44,11 @@ Reusability:
 - License of project is MIT. Some parts of code may be distributed with other licenses, which will be noticed in License file
 
 Hardware:
+- STM32F401CCU
 - CH340C as UART-USB-C Converter (but any other with same pins may be used)
 - Digital Light Sensor Module (NAMELESS, Characteristics:
 ` Photoresistor, LM393 comparator, output >15 mA, potentiometer threshold, 3.3–5 V, digital output (0/1), mounting hole, 3.2 × 1.4 cm. Pins: VCC (3.3–5 V), GND, DO (digital out).) `
 - AHT10
 - BMP280
+- Display OLED (SSD1315) S0.96" I2C 128x64
 - Red LEDs
