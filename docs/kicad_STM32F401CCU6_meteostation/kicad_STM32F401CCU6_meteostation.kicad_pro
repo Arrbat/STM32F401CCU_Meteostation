@@ -232,7 +232,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "STM32F401CCU_Meteostation.kicad_pro",
+    "filename": "kicad_STM32F401CCU6_meteostation.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -307,6 +307,23 @@
     "subpart_first_id": 65,
     "subpart_id_separator": 0
   },
-  "sheets": [],
+  "sheets": [
+    [
+      "d357996e-dbf2-4ea9-a910-dce674dbe94c",
+      ""
+    ],
+    [
+      "58ccbaeb-fb2f-4335-97f5-7aba38f1dc48",
+      "power_supply"
+    ],
+    [
+      "2b0d3a3f-870c-49a6-9675-ada91808f994",
+      "debugger_programmer"
+    ],
+    [
+      "e9ee7e41-edae-4378-8334-707fb9ac30d7",
+      "communication_interfaces"
+    ]
+  ],
   "text_variables": {}
 }
