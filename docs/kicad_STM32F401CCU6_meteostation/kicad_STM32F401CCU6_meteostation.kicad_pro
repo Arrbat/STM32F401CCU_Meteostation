@@ -313,16 +313,16 @@
       ""
     ],
     [
-      "58ccbaeb-fb2f-4335-97f5-7aba38f1dc48",
-      "power_supply"
-    ],
-    [
       "2b0d3a3f-870c-49a6-9675-ada91808f994",
       "debugger_programmer"
     ],
     [
       "e9ee7e41-edae-4378-8334-707fb9ac30d7",
       "communication_interfaces"
+    ],
+    [
+      "cf11ae54-194e-426b-b4a4-485cbd98efc0",
+      "mcu"
     ]
   ],
   "text_variables": {}
