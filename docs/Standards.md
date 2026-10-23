@@ -25,6 +25,8 @@ References: Conventional Commits
 
 References: MISRA C 2012, BARR-C:2018
 
+- `clang-format`, `clang-tidy` automations are used
+
 ## Code Architecture
 - Hardware Interfaces have API
 - HAL cannot be called directly by Application Layer
@@ -48,4 +50,35 @@ References: MISRA C 2012, BARR-C:2018
 - API Tests 
 
 ## License
-- MIT license. 
+- MIT license
+
+## Issues 
+
+- Size rules:
+```
+    XS for typos, a few lines of code
+    S for simple local change per one file
+    M for a few simple cross-files changes; or big functional changes per file
+    L for one major change per component. Should be break down into smaller issues.
+    XL is not used. Must be break down into smaller issues
+```
+- Priority rules:
+```
+P0 Critical issue, blocker, major bug
+P1 as P0, but not ASAP. Requires time to be resolved
+P2 Default priority.
+P3 Small changes or things that are not required for Milestones, project main goals, etc
+P4 Does not affect a lot on project
+```
+
+- Estimate rules:
+    Estimation points are assigned according to issue size, where
+```
+    XS = 1
+    S  = 2-3
+    M  = 4-5
+    L  = 6-10
+    XL is not used
+```
+
+Issues priority and size options are also described at Github project linked to this repository. Estimation is not. 

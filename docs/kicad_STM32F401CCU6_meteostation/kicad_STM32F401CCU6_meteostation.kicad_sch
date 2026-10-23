@@ -1,132 +1,304 @@
-(kicad_sch (version 20230121) (generator eeschema)
-
-  (uuid d357996e-dbf2-4ea9-a910-dce674dbe94c)
-
-  (paper "A4")
-
-  (title_block
-    (title "Sheets' pins connections")
-    (date "2026-10-15")
-    (rev "v.01")
-  )
-
-  (lib_symbols
-  )
-
-
-  (wire (pts (xy 139.7 63.5) (xy 154.94 63.5))
-    (stroke (width 0) (type default))
-    (uuid 606be9cf-6a20-4ef4-b66c-587d3b8790a3)
-  )
-  (wire (pts (xy 139.7 67.31) (xy 154.94 67.31))
-    (stroke (width 0) (type default))
-    (uuid 94a5074c-c4fd-4629-82ae-45c34c87c9fa)
-  )
-  (wire (pts (xy 88.9 63.5) (xy 101.6 63.5))
-    (stroke (width 0) (type default))
-    (uuid f0f666ec-148d-4532-9a46-2c8395bfed9a)
-  )
-  (wire (pts (xy 88.9 57.15) (xy 101.6 57.15))
-    (stroke (width 0) (type default))
-    (uuid f7c87b13-6d2e-47c2-89a6-e4ce8c64e612)
-  )
-  (wire (pts (xy 88.9 67.31) (xy 101.6 67.31))
-    (stroke (width 0) (type default))
-    (uuid ff5f3f5e-e3b5-4cd8-8808-a4aa2d8d0165)
-  )
-
-  (sheet (at 50.8 50.8) (size 38.1 29.21)
-    (stroke (width 0.1524) (type solid))
-    (fill (color 0 0 0 0.0000))
-    (uuid 2b0d3a3f-870c-49a6-9675-ada91808f994)
-    (property "Sheetname" "debugger_programmer" (at 50.8 46.99 0)
-      (effects (font (size 1.27 1.27)) (justify left bottom))
-    )
-    (property "Sheetfile" "debugger_programmer.kicad_sch" (at 50.8 48.26 0)
-      (effects (font (size 1.27 1.27)) (justify left top))
-    )
-    (pin "NRST" bidirectional (at 88.9 57.15 0)
-      (effects (font (size 1.27 1.27)) (justify right))
-      (uuid 7373ecac-3ef2-4bb9-b993-ea6dec6a2e7b)
-    )
-    (pin "SWCLK" bidirectional (at 88.9 63.5 0)
-      (effects (font (size 1.27 1.27)) (justify right))
-      (uuid 9071b35f-b4dd-4282-bc17-5b856f005506)
-    )
-    (pin "SWDIO" bidirectional (at 88.9 67.31 0)
-      (effects (font (size 1.27 1.27)) (justify right))
-      (uuid 874809e9-1450-4862-88bb-c2bd305c1f0f)
-    )
-    (instances
-      (project "kicad_STM32F401CCU6_meteostation"
-        (path "/d357996e-dbf2-4ea9-a910-dce674dbe94c" (page "3"))
-      )
-    )
-  )
-
-  (sheet (at 101.6 50.8) (size 38.1 29.21)
-    (stroke (width 0.1524) (type solid))
-    (fill (color 0 0 0 0.0000))
-    (uuid cf11ae54-194e-426b-b4a4-485cbd98efc0)
-    (property "Sheetname" "mcu" (at 101.6 46.99 0)
-      (effects (font (size 1.27 1.27)) (justify left bottom))
-    )
-    (property "Sheetfile" "mcu.kicad_sch" (at 101.6 48.26 0)
-      (effects (font (size 1.27 1.27)) (justify left top))
-    )
-    (pin "MCU_USART2_TX" bidirectional (at 139.7 63.5 0)
-      (effects (font (size 1.27 1.27)) (justify right))
-      (uuid 35744f57-97f0-4680-85e7-1bdcfe815f59)
-    )
-    (pin "SWDIO" bidirectional (at 101.6 67.31 180)
-      (effects (font (size 1.27 1.27)) (justify left))
-      (uuid 4948f7ff-dc0f-44fa-91f3-47b1ead1c561)
-    )
-    (pin "SWCLK" bidirectional (at 101.6 63.5 180)
-      (effects (font (size 1.27 1.27)) (justify left))
-      (uuid 689fefd4-f2a3-48eb-b468-f8a360a28304)
-    )
-    (pin "MCU_USART2_RX" bidirectional (at 139.7 67.31 0)
-      (effects (font (size 1.27 1.27)) (justify right))
-      (uuid 2bdcd5a3-a284-471a-9869-2738a8fed7c3)
-    )
-    (pin "NRST" bidirectional (at 101.6 57.15 180)
-      (effects (font (size 1.27 1.27)) (justify left))
-      (uuid 4e4a234e-f68d-4ce5-a5b1-7dbeb537e2c8)
-    )
-    (instances
-      (project "kicad_STM32F401CCU6_meteostation"
-        (path "/d357996e-dbf2-4ea9-a910-dce674dbe94c" (page "5"))
-      )
-    )
-  )
-
-  (sheet (at 154.94 50.8) (size 38.1 29.21)
-    (stroke (width 0.1524) (type solid))
-    (fill (color 0 0 0 0.0000))
-    (uuid e9ee7e41-edae-4378-8334-707fb9ac30d7)
-    (property "Sheetname" "communication_interfaces" (at 154.94 46.99 0)
-      (effects (font (size 1.27 1.27)) (justify left bottom))
-    )
-    (property "Sheetfile" "communication_interfaces.kicad_sch" (at 154.94 48.26 0)
-      (effects (font (size 1.27 1.27)) (justify left top))
-    )
-    (pin "USART2_RX" bidirectional (at 154.94 63.5 180)
-      (effects (font (size 1.27 1.27)) (justify left))
-      (uuid 17899c4e-4d13-45c6-a701-41929cb37e02)
-    )
-    (pin "USART2_TX" bidirectional (at 154.94 67.31 180)
-      (effects (font (size 1.27 1.27)) (justify left))
-      (uuid 7a80714c-812d-49bb-9649-cc4449006c25)
-    )
-    (instances
-      (project "kicad_STM32F401CCU6_meteostation"
-        (path "/d357996e-dbf2-4ea9-a910-dce674dbe94c" (page "4"))
-      )
-    )
-  )
-
-  (sheet_instances
-    (path "/" (page "1"))
-  )
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "d357996e-dbf2-4ea9-a910-dce674dbe94c")
+	(paper "A4")
+	(title_block
+		(title "Sheets' pins connections")
+		(date "2026-10-15")
+		(rev "v.01")
+	)
+	(lib_symbols)
+	(wire
+		(pts
+			(xy 139.7 63.5) (xy 154.94 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "606be9cf-6a20-4ef4-b66c-587d3b8790a3")
+	)
+	(wire
+		(pts
+			(xy 139.7 67.31) (xy 154.94 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "94a5074c-c4fd-4629-82ae-45c34c87c9fa")
+	)
+	(wire
+		(pts
+			(xy 88.9 63.5) (xy 101.6 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f0f666ec-148d-4532-9a46-2c8395bfed9a")
+	)
+	(wire
+		(pts
+			(xy 88.9 57.15) (xy 101.6 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f7c87b13-6d2e-47c2-89a6-e4ce8c64e612")
+	)
+	(wire
+		(pts
+			(xy 88.9 67.31) (xy 101.6 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ff5f3f5e-e3b5-4cd8-8808-a4aa2d8d0165")
+	)
+	(sheet
+		(at 50.8 50.8)
+		(size 38.1 29.21)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "2b0d3a3f-870c-49a6-9675-ada91808f994")
+		(property "Sheetname" "debugger_programmer"
+			(at 50.8 46.99 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "debugger_programmer.kicad_sch"
+			(at 50.8 48.26 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "NRST" bidirectional
+			(at 88.9 57.15 0)
+			(uuid "7373ecac-3ef2-4bb9-b993-ea6dec6a2e7b")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "SWCLK" bidirectional
+			(at 88.9 63.5 0)
+			(uuid "9071b35f-b4dd-4282-bc17-5b856f005506")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "SWDIO" bidirectional
+			(at 88.9 67.31 0)
+			(uuid "874809e9-1450-4862-88bb-c2bd305c1f0f")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(instances
+			(project "kicad_STM32F401CCU6_meteostation"
+				(path "/d357996e-dbf2-4ea9-a910-dce674dbe94c"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 101.6 50.8)
+		(size 38.1 29.21)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "cf11ae54-194e-426b-b4a4-485cbd98efc0")
+		(property "Sheetname" "mcu"
+			(at 101.6 46.99 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "mcu.kicad_sch"
+			(at 101.6 48.26 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "MCU_USART2_TX" bidirectional
+			(at 139.7 63.5 0)
+			(uuid "35744f57-97f0-4680-85e7-1bdcfe815f59")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "SWDIO" bidirectional
+			(at 101.6 67.31 180)
+			(uuid "4948f7ff-dc0f-44fa-91f3-47b1ead1c561")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "SWCLK" bidirectional
+			(at 101.6 63.5 180)
+			(uuid "689fefd4-f2a3-48eb-b468-f8a360a28304")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "MCU_USART2_RX" bidirectional
+			(at 139.7 67.31 0)
+			(uuid "2bdcd5a3-a284-471a-9869-2738a8fed7c3")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "NRST" bidirectional
+			(at 101.6 57.15 180)
+			(uuid "4e4a234e-f68d-4ce5-a5b1-7dbeb537e2c8")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(instances
+			(project "kicad_STM32F401CCU6_meteostation"
+				(path "/d357996e-dbf2-4ea9-a910-dce674dbe94c"
+					(page "5")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 154.94 50.8)
+		(size 38.1 29.21)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "e9ee7e41-edae-4378-8334-707fb9ac30d7")
+		(property "Sheetname" "communication_interfaces"
+			(at 154.94 46.99 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "communication_interfaces.kicad_sch"
+			(at 154.94 48.26 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "USART2_RX" bidirectional
+			(at 154.94 63.5 180)
+			(uuid "17899c4e-4d13-45c6-a701-41929cb37e02")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "USART2_TX" bidirectional
+			(at 154.94 67.31 180)
+			(uuid "7a80714c-812d-49bb-9649-cc4449006c25")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(instances
+			(project "kicad_STM32F401CCU6_meteostation"
+				(path "/d357996e-dbf2-4ea9-a910-dce674dbe94c"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
 )
