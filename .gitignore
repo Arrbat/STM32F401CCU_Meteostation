@@ -11,7 +11,10 @@ docs/kicad_STM32F401CCU6_meteostation/decouplingkicad_sch.kicad_sch
 docs/kicad_STM32F401CCU6_meteostation/power_supply.kicad_sch-bak
 docs/kicad_STM32F401CCU6_meteostation/kicad_STM32F401CCU6_meteostation.kicad_sch-bak
 docs/kicad_STM32F401CCU6_meteostation/decouplingkicad_sch.kicad_sch
+docs/kicad_STM32F401CCU6_meteostation/~kicad_STM32F401CCU6_meteostation.kicad_pro.lck.lck
+docs/**/_restore_backup_*/
 
 #local workspace
 .settings
 .vscode
+.history

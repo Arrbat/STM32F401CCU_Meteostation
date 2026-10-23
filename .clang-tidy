@@ -1,0 +1,109 @@
+---
+Checks: >
+  -*,
+  clang-diagnostic-*,
+  clang-analyzer-*,
+  bugprone-*,
+  cert-*,
+  concurrency-*,
+  misc-*,
+  portability-*,
+  readability-*,
+  -bugprone-easily-swappable-parameters,
+  -clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling,
+  -misc-include-cleaner,
+  -portability-restrict-system-includes,
+  -readability-identifier-length
+
+WarningsAsErrors: >
+  clang-diagnostic-*,
+  clang-analyzer-*,
+  bugprone-*,
+  cert-*,
+  concurrency-*,
+  misc-no-recursion,
+  misc-definitions-in-headers,
+  misc-redundant-expression,
+  readability-misleading-indentation
+
+SystemHeaders: false
+FormatStyle: none
+
+ExtraArgs:
+  - -Wall
+  - -Wextra
+  - -Wpedantic
+  - -Wconversion
+  - -Wsign-conversion
+  - -Wshadow
+  - -Wcast-qual
+  - -Wcast-align
+  - -Wstrict-prototypes
+  - -Wmissing-prototypes
+  - -Wmissing-variable-declarations
+  - -Wswitch-enum
+  - -Wundef
+  - -Wdouble-promotion
+  - -Wfloat-equal
+  - -Wformat=2
+  - -Wvla
+  - -Wimplicit-fallthrough
+  - -Wunreachable-code
+
+CheckOptions:
+  - key: readability-function-cognitive-complexity.Threshold
+    value: '15'
+  - key: readability-function-cognitive-complexity.IgnoreMacros
+    value: 'true'
+  - key: readability-function-size.LineThreshold
+    value: '100'
+  - key: readability-function-size.StatementThreshold
+    value: '50'
+  - key: readability-function-size.ParameterThreshold
+    value: '6'
+  - key: readability-function-size.NestingThreshold
+    value: '4'
+  - key: readability-implicit-bool-conversion.AllowIntegerConditions
+    value: 'false'
+  - key: readability-implicit-bool-conversion.AllowPointerConditions
+    value: 'false'
+  - key: readability-magic-numbers.IgnorePowersOf2IntegerValues
+    value: 'true'
+  - key: readability-magic-numbers.IgnoredIntegerValues
+    value: '0;1;2;3;4;8'
+  - key: bugprone-reserved-identifier.AllowedIdentifiers
+    value: '_estack;_sidata;_sdata;_edata;_sbss;_ebss'
+  - key: cert-err33-c.AllowCastToVoid
+    value: 'true'
+
+  # naming: general
+  - key: readability-identifier-naming.FunctionCase
+    value: lower_case
+  - key: readability-identifier-naming.VariableCase
+    value: lower_case
+  - key: readability-identifier-naming.MemberCase
+    value: lower_case
+  - key: readability-identifier-naming.MacroDefinitionCase
+    value: UPPER_CASE
+  - key: readability-identifier-naming.EnumConstantCase
+    value: UPPER_CASE
+  - key: readability-identifier-naming.ConstantCase
+    value: UPPER_CASE
+
+  # naming: types
+  - key: readability-identifier-naming.StructCase
+    value: lower_case
+  - key: readability-identifier-naming.StructSuffix
+    value: _t
+  - key: readability-identifier-naming.UnionCase
+    value: lower_case
+  - key: readability-identifier-naming.UnionSuffix
+    value: _t
+  - key: readability-identifier-naming.EnumCase
+    value: lower_case
+  - key: readability-identifier-naming.EnumSuffix
+    value: _t
+  - key: readability-identifier-naming.TypedefCase
+    value: lower_case
+  - key: readability-identifier-naming.TypedefSuffix
+    value: _t
