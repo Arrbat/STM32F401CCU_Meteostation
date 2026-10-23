@@ -1,1 +1,22 @@
+Language: C
+BasedOnStyle: GNU
 
+IndentWidth: 4
+ContinuationIndentWidth: 4
+UseTab: Never
+
+ColumnLimit: 80
+BreakBeforeBraces: Allman
+AllowShortBlocksOnASingleLine: Never
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: None
+AllowShortCaseLabelsOnASingleLine: false
+
+PointerAlignment: Right
+DerivePointerAlignment: false
+
+SpaceBeforeParens: ControlStatements
+
+SeparateDefinitionBlocks: Always
+MaxEmptyLinesToKeep: 2
