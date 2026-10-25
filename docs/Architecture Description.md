@@ -13,42 +13,85 @@ Functionality includes:
 Since project use MCU, interfaces, external devices, dealing with hardware and firmware, the expected user is likely experienced with embedded engineering 
 so that is able to understand and (mainly) deploy the project for its own purposes (both learning or practical)
 
-## Interfaces
+## Architecture
+Project aims to follow architecture:
+- App - business logic, is hardware independent, easy to port and reuse.
+- API and interfaces - are used by App and hardware-dependent code. In ideal case only requires the hardware-dependent code substitution,
+while API is unchanged. In other cases API may be changed.
+- HAL/Registers/Linkers and other files are generated and not changed manually (excluding main.c to include app logic)
 
-User Interface supposes interaction between system and user, while device remains as black-box. User is needed to have interaction within the system, including:
-- UART Logging of internal information and visible one (e.g. measurements extraction to external device)
-- Turning the system ON/OFF
+## Code style
 
-Software and Hardware interfaces are separated, meaning that every logic that somehow is dependent on hardware/platform/HAL is implemented independent of Software and API. 
-Software is aimed to be portable (realistically possible to change and port), in other words application itself has business logic, API connects Software and Hardware, 
-but both of them does not know about each other
+GNU-based style with minor changes
 
-## Quality Of Service 
+- `clang-format` is defined and automatically used for every commit that includes code changes
 
-Temperature: measurement between -20...+40°C ±0.5 °C. Verification is done by Reference Thermometer and comparison between project's one and reference.
+## Code Verification and Validation
+- Every commit is tested at unit level
+- `clang-tidy` is defined and automatically used for every commit that includes code changes
 
-Robustness: if station comes across the error, it should keep on working and report the issue through LED indicator.
+## Commits
+- Commits follow the template:
+```
+<type>[optional scope]: <description>
 
-Logging: is done just by wiring the pins and connecting interface to needed external device (like PC). Terminal is setup by user on its host.
+[optional body]
 
+[optional footer(s)]
+```
+- Commits describe one change per time
 
-## Design and Implementation 
+References: Conventional Commits
 
-Installation:
-- Devices may be wired on breadboard
-- Firmware must be loaded through ST-LINK
-- Power must be delivered. Initially, 3.3V voltage source is required
+## Hardware Schemes and Verification
+- PCB is excluded from project scope for now
+- Schemes try to follow general conventions of elements placement, hierarchical sheets and labels usage etc
+- Schemes are tested with ERC checks, so that required to have zero errors and as minimum warnings as possible
 
-Reusability:
-- Drivers for peripherals are required to be portable
-- License of project is MIT. Some parts of code may be distributed with other licenses, which will be noticed in License file
+## License
+- MIT license
 
-Hardware:
-- STM32F401CCU6
-- CH340C as UART-USB-C Converter (but any other with same pins may be used)
-- Digital Light Sensor Module (NAMELESS, Characteristics:
-` Photoresistor, LM393 comparator, output >15 mA, potentiometer threshold, 3.3–5 V, digital output (0/1), mounting hole, 3.2 × 1.4 cm. Pins: VCC (3.3–5 V), GND, DO (digital out).) `
+## Issues 
+
+- Size rules:
+```
+    XS Edits that do not change the logic: typos, comments, constants, formatting. A single file, usually up to ~5 lines.
+    S A local change to the logic in a single file. Does not affect the interfaces of other modules. Does not require changes to any files other than the tests.
+    M It's one of two things: simple, coordinated changes across several files (such as renaming or extending a signature), or a significant change to the logic in a single file. Affects one component.
+    L A change that affects multiple files with non-trivial logic within a single component or that modifies its interface. Before work begins, it is broken down into subtasks of size M or less; the L-issue remains as the parent/tracking issue.
+    XL is not used. Must be break down into smaller issues
+```
+- Priority rules:
+```
+P0 Prevents the development, build, release, or operation of core functionality; or a critical defect (data loss, hardware damage, security). Must be addressed immediately, interrupting all current tasks.
+P1 Required for the next milestone, but does not block other work at this time. A significant defect that does not block progress, or a task on the critical path. Must be resolved by the milestone deadline.
+P2 Scheduled work within a Milestone: features, non-trivial bugs with workarounds. Assigned by default
+P3 Not required for Milestones or the project's main objectives. Improvements, refactoring, and minor bugs that do not affect functionality. Worked on as time permits.
+P4 Cosmetics, ideas, nice-to-haves. No planned deadline; may be closed without implementation during a backlog review.
+```
+
+- Estimate rules:
+    Estimation points are assigned according to issue size, where
+```
+    XS = 1
+    S  = 2-3
+    M  = 4-5
+    L  = 6-10
+    XL is not used
+```
+
+Issues priority and size options are also described at Github project linked to this repository. "Estimation" is described only in that file.
+
+## Maintainer hardware for which project is in development
+
+- STM32F401CCU6 
+- CH340C as UART-USB-C Converter
+- Digital Light Sensor Module 
+```
+(NAMELESS, Characteristics:
+Photoresistor, LM393 comparator, output >15 mA, potentiometer threshold, 3.3–5 V, digital output (0/1), mounting hole, 3.2 × 1.4 cm. Pins: VCC (3.3–5 V), GND, DO (digital out).)
+```
 - AHT10
 - BMP280
 - Display OLED (SSD1315) S0.96" I2C 128x64
-- Red LEDs
+- LEDs
