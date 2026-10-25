@@ -5,7 +5,6 @@ docs/kicad_STM32F401CCU6_meteostation/_autosave-debugger-programmer.kicad_sch
 sym-lib-table
 fp-info-cache
 \#auto_saved_files#
-build/
 docs/kicad_STM32F401CCU6_meteostation/kicad_STM32F401CCU6_meteostation-backups
 docs/kicad_STM32F401CCU6_meteostation/decouplingkicad_sch.kicad_sch
 docs/kicad_STM32F401CCU6_meteostation/power_supply.kicad_sch-bak
@@ -18,3 +17,8 @@ docs/**/_restore_backup_*/
 .settings
 .vscode
 .history
+
+#cache/artifacts
+cubemx_build/
+CMakeFiles/
+build/
