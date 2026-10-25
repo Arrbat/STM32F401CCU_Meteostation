@@ -25,3 +25,6 @@ cubemx_build/
 CMakeFiles/
 build/
 CMakeCache.txt
+
+vendor/.clang-format
+vendor/.clang-tidy
