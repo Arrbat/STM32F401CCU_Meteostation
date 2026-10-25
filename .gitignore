@@ -12,6 +12,7 @@ docs/kicad_STM32F401CCU6_meteostation/kicad_STM32F401CCU6_meteostation.kicad_sch
 docs/kicad_STM32F401CCU6_meteostation/decouplingkicad_sch.kicad_sch
 docs/kicad_STM32F401CCU6_meteostation/~kicad_STM32F401CCU6_meteostation.kicad_pro.lck.lck
 docs/**/_restore_backup_*/
+docs/kicad_STM32F401CCU6_meteostation/~kicad_STM32F401CCU6_meteostation.kicad_pro.lck
 
 #local workspace
 .settings
@@ -23,3 +24,4 @@ notes.txt
 cubemx_build/
 CMakeFiles/
 build/
+CMakeCache.txt
