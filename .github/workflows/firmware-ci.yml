@@ -1,0 +1,126 @@
+name: Build Firmware, Clang Format, Clang Tidy
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  code-formatting-check:
+    name: Code formatting (clang-format)
+    runs-on: ubuntu-latest
+    container: archlinux:latest
+    timeout-minutes: 10
+    steps:
+      - name: Install dependencies
+        run: pacman -Syu --noconfirm --needed git clang
+
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Mark workspace as safe for git
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
+      - name: Print tool versions
+        run: clang-format --version
+
+      - name: Check formatting (app, lib, drivers)
+        run: |
+          git ls-files \
+            'app/*.c' 'app/*.h' \
+            'lib/*.c' 'lib/*.h' \
+            'drivers/*.c' 'drivers/*.h' \
+            | xargs --no-run-if-empty clang-format --dry-run --Werror --style=file
+
+  firmware-build:
+    name: Firmware build (${{ matrix.build_type }})
+    runs-on: ubuntu-latest
+    container: archlinux:latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        build_type: [ Debug, Release ]
+    steps:
+      - name: Install dependencies
+        run: |
+          pacman -Syu --noconfirm --needed \
+            git cmake ninja arm-none-eabi-gcc arm-none-eabi-newlib
+
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Print tool versions
+        run: |
+          arm-none-eabi-gcc --version
+          cmake --version
+
+      - name: Configure (${{ matrix.build_type }})
+        run: cmake --preset ${{ matrix.build_type }}
+
+      - name: Build (${{ matrix.build_type }})
+        run: cmake --build --preset ${{ matrix.build_type }}
+
+      - name: Report firmware size
+        run: arm-none-eabi-size build/${{ matrix.build_type }}/Meteostation.elf
+
+      - name: Upload firmware artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: meteostation-${{ matrix.build_type }}
+          path: |
+            build/${{ matrix.build_type }}/Meteostation.elf
+            build/${{ matrix.build_type }}/Meteostation.map
+          if-no-files-found: warn
+          retention-days: 14
+
+  static-analysis:
+    name: Static analysis (clang-tidy)
+    runs-on: ubuntu-latest
+    container: archlinux:latest
+    timeout-minutes: 20
+    steps:
+      - name: Install dependencies
+        run: |
+          pacman -Syu --noconfirm --needed \
+            git cmake ninja clang arm-none-eabi-gcc arm-none-eabi-newlib
+
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Mark workspace as safe for git
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
+      - name: Print tool versions
+        run: |
+          arm-none-eabi-gcc --version
+          clang-tidy --version
+
+      - name: Configure (generate compile_commands.json)
+        run: cmake --preset Debug
+
+      - name: Run clang-tidy (app, lib, drivers)
+        run: |
+          ARGS=(
+            -p build/Debug
+            "--header-filter=^${GITHUB_WORKSPACE}/(app|lib|drivers)/"
+            --extra-arg=--target=arm-none-eabi
+            --extra-arg=-Qunused-arguments
+            --extra-arg=-Wno-unknown-argument
+          )
+          while read -r dir; do
+            ARGS+=("--extra-arg=-isystem${dir}")
+          done < <(echo | arm-none-eabi-gcc -E -Wp,-v -xc - 2>&1 \
+                     | sed -n 's|^ \(/.*\)|\1|p' \
+                     | grep -v '/lib/gcc/')
+          git ls-files 'app/*.c' 'lib/*.c' 'drivers/*.c' \
+            | xargs --no-run-if-empty -P "$(nproc)" -n1 clang-tidy "${ARGS[@]}"
