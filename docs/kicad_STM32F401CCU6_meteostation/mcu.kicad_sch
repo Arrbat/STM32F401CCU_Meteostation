@@ -1829,6 +1829,12 @@
 		(uuid "0751f2ab-c82b-4820-a1b6-f4df8d37946e")
 	)
 	(junction
+		(at 147.32 69.85)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "3aeb7d25-7e44-413e-9dc9-2b46e29b1272")
+	)
+	(junction
 		(at 121.92 77.47)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2240,16 +2246,6 @@
 	)
 	(wire
 		(pts
-			(xy 54.61 17.78) (xy 54.61 22.86)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c4b584aa-0dac-4214-97ab-aec6b9d109e0")
-	)
-	(wire
-		(pts
 			(xy 72.39 35.56) (xy 81.28 35.56)
 		)
 		(stroke
@@ -2257,6 +2253,16 @@
 			(type default)
 		)
 		(uuid "ca8be36a-d755-46c0-b549-d06e97fdbe03")
+	)
+	(wire
+		(pts
+			(xy 149.86 69.85) (xy 147.32 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d57f0587-94e1-4d42-8a19-895fa8905263")
 	)
 	(wire
 		(pts
@@ -2369,7 +2375,7 @@
 		(uuid "bc16011a-3efc-4c74-9d77-d311179fae63")
 	)
 	(label "VBAT"
-		(at 147.32 69.85 0)
+		(at 149.86 69.85 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2691,82 +2697,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+3.3V")
-		(at 54.61 17.78 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "2124b260-b3d4-43b5-ba14-45238bce4daa")
-		(property "Reference" "#PWR015"
-			(at 54.61 21.59 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 54.61 13.97 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 54.61 17.78 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 54.61 17.78 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 54.61 17.78 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "350afd1d-a40d-42e6-a43b-7225d2cac8cb")
-		)
-		(instances
-			(project "kicad_STM32F401CCU6_meteostation"
-				(path "/d357996e-dbf2-4ea9-a910-dce674dbe94c/cf11ae54-194e-426b-b4a4-485cbd98efc0"
-					(reference "#PWR015")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 21.59 27.94 0)
 		(unit 1)
@@ -3071,6 +3001,82 @@
 			(project "kicad_STM32F401CCU6_meteostation"
 				(path "/d357996e-dbf2-4ea9-a910-dce674dbe94c/cf11ae54-194e-426b-b4a4-485cbd98efc0"
 					(reference "#FLG02")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3.3V")
+		(at 147.32 69.85 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "49473dc2-e730-4baa-bff5-3d824b7bba14")
+		(property "Reference" "#PWR015"
+			(at 147.32 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3.3V"
+			(at 147.32 66.04 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 147.32 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 147.32 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 147.32 69.85 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "a10a3fe9-3073-4ad4-b391-a7a25f85dbdc")
+		)
+		(instances
+			(project "kicad_STM32F401CCU6_meteostation"
+				(path "/d357996e-dbf2-4ea9-a910-dce674dbe94c/cf11ae54-194e-426b-b4a4-485cbd98efc0"
+					(reference "#PWR015")
 					(unit 1)
 				)
 			)
