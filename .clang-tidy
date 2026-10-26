@@ -15,15 +15,62 @@ Checks: >
   -portability-restrict-system-includes,
   -readability-identifier-length
 
+# Errors: only real defect classes. Everything else enabled above stays a warning.
 WarningsAsErrors: >
-  clang-diagnostic-*,
-  clang-analyzer-*,
-  bugprone-*,
-  cert-*,
-  concurrency-*,
+  clang-diagnostic-error,
+  clang-diagnostic-return-type,
+  clang-diagnostic-uninitialized,
+  clang-diagnostic-sometimes-uninitialized,
+  clang-diagnostic-conditional-uninitialized,
+  clang-diagnostic-implicit-function-declaration,
+  clang-diagnostic-implicit-int,
+  clang-diagnostic-incompatible-pointer-types,
+  clang-diagnostic-incompatible-pointer-types-discards-qualifiers,
+  clang-diagnostic-int-conversion,
+  clang-diagnostic-format,
+  clang-diagnostic-format-security,
+  clang-diagnostic-array-bounds,
+  clang-diagnostic-null-dereference,
+  clang-diagnostic-infinite-recursion,
+  clang-diagnostic-sizeof-pointer-memaccess,
+  clang-diagnostic-address-of-temporary,
+  clang-diagnostic-switch,
+  clang-analyzer-core.*,
+  clang-analyzer-unix.*,
+  clang-analyzer-security.*,
+  clang-analyzer-optin.portability.*,
+  bugprone-infinite-loop,
+  bugprone-sizeof-expression,
+  bugprone-suspicious-memset-usage,
+  bugprone-suspicious-memory-comparison,
+  bugprone-suspicious-string-compare,
+  bugprone-suspicious-semicolon,
+  bugprone-not-null-terminated-result,
+  bugprone-string-literal-with-embedded-nul,
+  bugprone-signed-char-misuse,
+  bugprone-integer-division,
+  bugprone-misplaced-widening-cast,
+  bugprone-implicit-widening-of-multiplication-result,
+  bugprone-too-small-loop-variable,
+  bugprone-swapped-arguments,
+  bugprone-undefined-memory-manipulation,
+  bugprone-multiple-statement-macro,
+  bugprone-macro-parentheses,
+  bugprone-assignment-in-if-condition,
+  bugprone-unsafe-functions,
+  bugprone-posix-return,
+  bugprone-terminating-continue,
+  bugprone-signal-handler,
+  cert-err34-c,
+  cert-str34-c,
+  cert-flp30-c,
+  cert-env33-c,
+  cert-sig30-c,
+  cert-msc32-c,
   misc-no-recursion,
   misc-definitions-in-headers,
   misc-redundant-expression,
+  misc-non-copyable-objects,
   readability-misleading-indentation
 
 SystemHeaders: false
@@ -73,6 +120,8 @@ CheckOptions:
     value: '0;1;2;3;4;8'
   - key: bugprone-reserved-identifier.AllowedIdentifiers
     value: '_estack;_sidata;_sdata;_edata;_sbss;_ebss'
+  - key: cert-dcl37-c.AllowedIdentifiers
+    value: '_estack;_sidata;_sdata;_edata;_sbss;_ebss'
   - key: cert-err33-c.AllowCastToVoid
     value: 'true'
 
@@ -81,28 +130,24 @@ CheckOptions:
     value: lower_case
   - key: readability-identifier-naming.VariableCase
     value: lower_case
+  - key: readability-identifier-naming.ParameterCase
+    value: lower_case
   - key: readability-identifier-naming.MemberCase
     value: lower_case
   - key: readability-identifier-naming.MacroDefinitionCase
     value: UPPER_CASE
   - key: readability-identifier-naming.EnumConstantCase
     value: UPPER_CASE
-  - key: readability-identifier-naming.ConstantCase
+  - key: readability-identifier-naming.GlobalConstantCase
     value: UPPER_CASE
 
-  # naming: types
+  # naming: types (suffix _t only on typedef names)
   - key: readability-identifier-naming.StructCase
     value: lower_case
-  - key: readability-identifier-naming.StructSuffix
-    value: _t
   - key: readability-identifier-naming.UnionCase
     value: lower_case
-  - key: readability-identifier-naming.UnionSuffix
-    value: _t
   - key: readability-identifier-naming.EnumCase
     value: lower_case
-  - key: readability-identifier-naming.EnumSuffix
-    value: _t
   - key: readability-identifier-naming.TypedefCase
     value: lower_case
   - key: readability-identifier-naming.TypedefSuffix

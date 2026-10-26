@@ -1,5 +1,7 @@
 #include <stdio.h>
 
-int test(){
+static int
+test(void)
+{
     return 0;
 }
